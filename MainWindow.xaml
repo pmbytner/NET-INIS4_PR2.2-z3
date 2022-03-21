@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NET_INIS4_PR2._2_z3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="350">
+        Title="MainWindow" Height="350" Width="550">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -22,26 +22,42 @@
             Grid.ColumnSpan="2"
             Grid.RowSpan="4"
             DataContext="{DynamicResource DaneXML}"
-            ItemsSource="{Binding XPath=Produkt}"
+            ItemsSource="{Binding XPath=Grupa/Produkty/Produkt}"
             AutoGenerateColumns="False"
             >
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Header="ID"
                     Binding="{Binding XPath=@id}"
-                    ></DataGridTextColumn>
+                    />
                 <DataGridTextColumn
                     Header="Nazwa"
                     Binding="{Binding XPath=Nazwa}"
-                    ></DataGridTextColumn>
+                    />
                 <DataGridTextColumn
                     Header="Cena"
                     Binding="{Binding XPath=Cena}"
-                    ></DataGridTextColumn>
+                    />
                 <DataGridTextColumn
                     Header="Ilość"
                     Binding="{Binding XPath=Ilość}"
-                    ></DataGridTextColumn>
+                    />
+                <DataGridTextColumn
+                    Header="Odmiana"
+                    Binding="{Binding XPath=Odmiana/Nazwa}"
+                    />
+                <DataGridTextColumn
+                    Header="Kraj Pochodzenia"
+                    Binding="{Binding XPath=KrajPochodzenia/Nazwa}"
+                    />
+                <DataGridTextColumn
+                    Header="Kod KP"
+                    Binding="{Binding XPath=KrajPochodzenia/@Kod}"
+                    />
+                <DataGridTextColumn
+                    Header="Grupa"
+                    Binding="{Binding XPath=../../Nazwa}"
+                    />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -7,7 +7,7 @@
         <XmlDataProvider
             x:Key="DaneXML"
             Source="Dane.xml"
-            XPath="Produkty"
+            XPath="GrupyProduktów"
             ></XmlDataProvider>
     </Application.Resources>
 </Application>
