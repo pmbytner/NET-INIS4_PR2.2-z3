@@ -18,51 +18,31 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Label
-            Grid.Row="0"
-            >Kolor obramowania:</Label>
-        <Label
-            Grid.Row="1"
-            >Kolor tła:</Label>
-        <Label
-            Grid.Row="2"
-            >Kolor tekstu:</Label>
-
-        <TextBox
-            Grid.Column="1"
-            Grid.Row="0"
-            Text="{Binding
-                Path=KolorObramowania,
-                UpdateSourceTrigger=PropertyChanged
-            }"
-            ></TextBox>
-        <TextBox
-            Grid.Column="1"
-            Grid.Row="1"
-            Text="{Binding
-                Path=KolorTła,
-                UpdateSourceTrigger=PropertyChanged
-            }"
-            ></TextBox>
-        <TextBox
-            Grid.Column="1"
-            Grid.Row="2"
-            Text="{Binding
-                Path=KolorTekstu,
-                UpdateSourceTrigger=PropertyChanged
-            }"
-            ></TextBox>
-
-        <Border
-            Grid.Row="3"
+        <DataGrid
             Grid.ColumnSpan="2"
-            BorderThickness="5"
-            BorderBrush="{Binding Path=KolorObramowania}"
-            Background="{Binding Path=KolorTła}"
+            Grid.RowSpan="4"
+            DataContext="{DynamicResource DaneXML}"
+            ItemsSource="{Binding XPath=Produkt}"
+            AutoGenerateColumns="False"
             >
-            <TextBlock
-                Foreground="{Binding Path=KolorTekstu}"
-                >Test</TextBlock>
-        </Border>
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="ID"
+                    Binding="{Binding XPath=@id}"
+                    ></DataGridTextColumn>
+                <DataGridTextColumn
+                    Header="Nazwa"
+                    Binding="{Binding XPath=Nazwa}"
+                    ></DataGridTextColumn>
+                <DataGridTextColumn
+                    Header="Cena"
+                    Binding="{Binding XPath=Cena}"
+                    ></DataGridTextColumn>
+                <DataGridTextColumn
+                    Header="Ilość"
+                    Binding="{Binding XPath=Ilość}"
+                    ></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
