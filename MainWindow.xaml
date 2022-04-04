@@ -5,9 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NET_INIS4_PR2._2_z3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="550">
+        
+        Title="MainWindow"
+        Height="720"
+        Width="860"
+        FontSize="24"
+        >
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -18,9 +28,13 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <DataGrid
+        <Label
             Grid.ColumnSpan="2"
-            Grid.RowSpan="4"
+            >Dane XML prezentowane w sposób dwywymiarowy</Label>
+        <DataGrid
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
             DataContext="{DynamicResource DaneXML}"
             ItemsSource="{Binding XPath=Grupa/Produkty/Produkt}"
             AutoGenerateColumns="False"
@@ -57,6 +71,32 @@
                 <DataGridTextColumn
                     Header="Grupa"
                     Binding="{Binding XPath=../../Nazwa}"
+                    />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            >Dane z kolekcji prezentowane w sposób dwywymiarowy</Label>
+        <DataGrid
+            Grid.Row="4"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            ItemsSource="{Binding Osoby}"
+            AutoGenerateColumns="False"
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="ID"
+                    Binding="{Binding ID}"
+                    />
+                <DataGridTextColumn
+                    Header="Imię Nazwisko"
+                    Binding="{Binding ImięNazwisko}"
+                    />
+                <DataGridTextColumn
+                    Header="Wiek"
+                    Binding="{Binding Wiek}"
                     />
             </DataGrid.Columns>
         </DataGrid>
