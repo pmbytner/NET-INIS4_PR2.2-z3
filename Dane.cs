@@ -28,5 +28,25 @@ namespace NET_INIS4_PR2._2_z3
             new Osoba() {Imię="Julia",Nazwisko="Jabłońska",Wiek=15},
             new Osoba() {Imię="Sylwia",Nazwisko="Sosnowska",Wiek=25},
         };
+        public Dictionary<uint, string> KolorySłownik { get; set; }
+            = new Dictionary<uint, string>()
+            {
+                [0] = "Czerwony",
+                [60] = "Żółty",
+                [120] = "Zielony",
+                [180] = "Turkusowy",
+                [240] = "Niebieski",
+                [300] = "Fioletowy"
+            };
+        
+        public IEnumerable<string> KoloryLista { get; set; }
+            = new LinkedList<string>(new string[]{
+                "Czerwony",
+                "Żółty",
+                "Zielony",
+                "Morski",
+                "Niebieski",
+                "Fioletowy"
+            });
     }
 }

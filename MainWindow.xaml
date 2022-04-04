@@ -7,19 +7,25 @@
         mc:Ignorable="d"
         
         Title="MainWindow"
-        Height="720"
+        Height="1200"
         Width="860"
         FontSize="24"
         >
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="42"/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="42"/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="42"/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="42"/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="42"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -74,6 +80,7 @@
                     />
             </DataGrid.Columns>
         </DataGrid>
+        
         <Label
             Grid.Row="3"
             Grid.ColumnSpan="2"
@@ -100,5 +107,51 @@
                     />
             </DataGrid.Columns>
         </DataGrid>
+
+        <Label
+            Grid.Row="6"
+            Grid.ColumnSpan="2"
+            >Dane z kolekcji prezentowane w sposób jednowymiarowy</Label>
+        <ListBox
+            Grid.Row="7"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            ItemsSource="{Binding KoloryLista}"
+            />
+
+        <Label
+            Grid.Row="9"
+            Grid.ColumnSpan="2"
+            >Dane ze słownika prezentowane na listboksie</Label>
+        <ListBox
+            Grid.Row="10"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            ItemsSource="{Binding KolorySłownik}"
+            >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            FontWeight="Bold"
+                            Text="{Binding Key}"
+                            Margin="0,0,10,0"
+                            />
+                        <TextBlock Text="{Binding Value}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <Label
+            Grid.Row="12"
+            Grid.ColumnSpan="2"
+            >Dane ze słownika prezentowane w datagridze</Label>
+        <DataGrid
+            Grid.Row="13"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+            ItemsSource="{Binding KolorySłownik}"
+            />
     </Grid>
 </Window>
